@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArtFinder — Discover art on the map</title>
+<meta name="description" content="ArtFinder: sokak sanatını, heykelleri, mozaikleri ve müzeleri haritada keşfet. Kendi bulduğun eseri ekle, puanla, takip et.">
+<link rel="icon" href="assets/artfinder_logo_black.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <img src="assets/artfinder_logo_black.png" alt="ArtFinder" class="nav-logo">
+  <ul class="nav-links">
+    <li><a href="#features">Özellikler</a></li>
+    <li><a href="#how">Nasıl çalışır</a></li>
+    <li><a href="#community">Topluluk</a></li>
+    <li><a href="support.html">Destek</a></li>
+  </ul>
+  <a class="nav-cta" href="#get">Uygulamayı al</a>
+  <button class="nav-menu-btn" aria-label="Menü">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<header class="hero">
+  <div class="hero-pins" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <img src="assets/artfinder_logo_white.png" alt="ArtFinder" class="hero-logo">
+    <h1>Bul <span class="spray">.</span> Pinle <span class="spray">.</span><br>Paylaş.</h1>
+    <p>Sokakta gördüğün bir grafiti, bir heykel, bir mozaik — anında haritaya işle. Yakınındaki müzeleri ve tescilli sokak sanatını otomatik keşfet.</p>
+    <div class="badge-row" id="get">
+      <a class="appstore-btn" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.55C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.5 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.02.07-.42 1.44-1.38 2.84M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span>App Store'da yakında</span>
+      </a>
+      <span class="soon-tag">TestFlight beta aşamasında</span>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="features">
+  <span class="eyebrow">// 39.9334°N, 32.8597°E</span>
+  <h2>Her eserin bir konumu var.</h2>
+  <p class="section-lead">ArtFinder, gördüğün sanatı unutmadan işaretlemen için var. Kendi eklediklerin, başkalarının paylaştıkları ve dünyanın açık arşivlerinden gelen eserler — hepsi tek haritada.</p>
+
+  <div class="pin-grid">
+    <div class="pin-card">
+      <div class="coords mono"><span class="dot orange"></span>Kendi eklediklerin</div>
+      <h3>Fotoğrafla, puanla, not düş</h3>
+      <p>Bulduğun eseri fotoğrafla, 5 üzerinden puanla, kısa bir not bırak. Tam konumuyla haritana işlenir.</p>
+    </div>
+    <div class="pin-card">
+      <div class="coords mono"><span class="dot blue"></span>Yakındaki müzeler</div>
+      <h3>Müzeler otomatik gelir</h3>
+      <p>Wikipedia'nın açık verisinden, çevrendeki müzeleri ve kısa tanıtım bilgilerini haritada görürsün.</p>
+    </div>
+    <div class="pin-card">
+      <div class="coords mono"><span class="dot purple"></span>Sokak sanatı arşivi</div>
+      <h3>Tescilli sokak sanatı</h3>
+      <p>Wikimedia Commons'ta konum etiketli, gerçek sokak sanatı fotoğrafları — sana en yakın olanlar öne çıkar.</p>
+    </div>
+    <div class="pin-card">
+      <div class="coords mono"><span class="dot spray"></span>Sana özel</div>
+      <h3>Zevkine göre öneri</h3>
+      <p>Yüksek puan verdiğin sanatçılara ve bölgelere göre, feed'inde sana özel eserler önerilir.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <span class="eyebrow">// Rota</span>
+  <h2>Üç adımda haritan dolsun.</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num mono">01</div>
+      <div>
+        <h3>Bir eser bul</h3>
+        <p>Sokakta, parkta, bir duvarda — dikkatini çeken her şey say olur.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num mono">02</div>
+      <div>
+        <h3>Fotoğrafla ve pinle</h3>
+        <p>Bulunduğun konum otomatik algılanır. Foto çek, yıldızla puanla, kısa bir yorum yaz.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num mono">03</div>
+      <div>
+        <h3>Keşfet ve takip et</h3>
+        <p>Başkalarının eklediklerine göz at, beğendiğin kişileri takip et, feed'inde sana özel öneriler gör.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="community">
+  <div class="split">
+    <div>
+      <span class="eyebrow">// Topluluk</span>
+      <h2>Yalnız gezme.</h2>
+      <p class="section-lead" style="margin-bottom:24px;">Beğendiğin gözleri takip et. Kimin nereye baktığını gör, kendi haritanı onların keşifleriyle zenginleştir. İngilizce ve Türkçe tam destekli.</p>
+    </div>
+    <div class="split-visual">
+      <svg class="route-svg" viewBox="0 0 400 300" fill="none">
+        <path d="M40 240 C 100 180, 120 120, 190 100 S 320 60, 360 40" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-dasharray="6 8"/>
+        <circle cx="40" cy="240" r="6" fill="#e08a3e"/>
+        <circle cx="190" cy="100" r="6" fill="#3e6fe0"/>
+        <circle cx="270" cy="75" r="6" fill="#8a4fe0"/>
+        <circle cx="360" cy="40" r="6" fill="#e0402f"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <span class="eyebrow mono">// Haritan seni bekliyor</span>
+  <h2>Şimdi bir pin bırak.</h2>
+  <div class="badge-row">
+    <a class="appstore-btn" href="#">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.55C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.5 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.02.07-.42 1.44-1.38 2.84M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span>App Store'da yakında</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <img src="assets/artfinder_logo_white.png" alt="ArtFinder" class="footer-logo">
+    <ul class="footer-links">
+      <li><a href="privacy.html">Gizlilik Politikası</a></li>
+      <li><a href="support.html">Destek</a></li>
+    </ul>
+  </div>
+  <div class="footer-tag">© 2026 ArtFinder — Discover art on the map.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
