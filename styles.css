@@ -106,7 +106,17 @@ img{max-width:100%;display:block;}
   opacity:0.5;
   pointer-events:none;
 }
-.hero-inner{position:relative; max-width:720px; margin:0 auto;}
+.hero-watermark{
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:min(1100px, 150vw);
+  opacity:0.06;
+  pointer-events:none;
+  z-index:0;
+  filter:blur(0.3px);
+}
+.hero-inner{position:relative; z-index:1; max-width:720px; margin:0 auto;}
 .hero-logo{width:150px; margin:0 auto 36px; opacity:0; animation:riseIn 0.7s 0.05s ease forwards;}
 .hero h1{
   font-family:'Archivo Black',sans-serif;
@@ -158,6 +168,10 @@ img{max-width:100%;display:block;}
   width:10px; height:10px;
   border-radius:50%;
   box-shadow:0 0 0 4px rgba(255,255,255,0.06);
+}
+.hero-route{
+  position:absolute; inset:0; width:100%; height:100%;
+  pointer-events:none; opacity:0.5;
 }
 
 /* ---------- SECTION SHELL ---------- */
@@ -211,6 +225,17 @@ img{max-width:100%;display:block;}
 .dot.blue{background:var(--pin-blue);}
 .dot.purple{background:var(--pin-purple);}
 .dot.spray{background:var(--spray);}
+.icon-ring{
+  width:52px; height:52px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:20px;
+}
+.icon-ring svg{width:24px; height:24px;}
+.icon-ring.orange{background:rgba(224,138,62,0.14); color:var(--pin-orange);}
+.icon-ring.blue{background:rgba(62,111,224,0.14); color:var(--pin-blue);}
+.icon-ring.purple{background:rgba(138,79,224,0.14); color:var(--pin-purple);}
+.icon-ring.spray{background:rgba(224,64,47,0.14); color:var(--spray);}
 .pin-card h3{font-size:1.2rem; margin:0 0 10px; font-weight:700;}
 .pin-card p{margin:0; color:var(--grey); line-height:1.6; font-size:0.96rem;}
 
@@ -231,7 +256,11 @@ img{max-width:100%;display:block;}
   -webkit-text-stroke:1.5px var(--ink);
   color:transparent;
 }
-.step h3{margin:0 0 8px; font-size:1.15rem;}
+.step h3{
+  margin:0 0 8px; font-size:1.15rem;
+  display:flex; align-items:center; gap:10px;
+}
+.step h3 svg{width:19px; height:19px; color:var(--spray); flex-shrink:0;}
 .step p{margin:0; color:var(--grey); line-height:1.6; max-width:460px;}
 
 /* ---------- COMMUNITY / SPLIT ---------- */
@@ -284,10 +313,70 @@ footer{
 .footer-links a:hover{opacity:1;}
 .footer-tag{font-family:'JetBrains Mono',monospace; font-size:0.72rem; opacity:0.5; margin-top:18px; text-align:center;}
 
-/* focus states */
-a:focus-visible, button:focus-visible{
-  outline:2px solid var(--spray);
-  outline-offset:3px;
+/* ---------- SCROLL REVEAL ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity 0.7s cubic-bezier(.2,.7,.3,1), transform 0.7s cubic-bezier(.2,.7,.3,1);
+}
+.reveal.in-view{opacity:1; transform:translateY(0);}
+.reveal-stagger.in-view .reveal-child{opacity:1; transform:translateY(0);}
+.reveal-child{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-stagger.in-view .reveal-child:nth-child(1){transition-delay:0.02s;}
+.reveal-stagger.in-view .reveal-child:nth-child(2){transition-delay:0.10s;}
+.reveal-stagger.in-view .reveal-child:nth-child(3){transition-delay:0.18s;}
+.reveal-stagger.in-view .reveal-child:nth-child(4){transition-delay:0.26s;}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal, .reveal-child{opacity:1 !important; transform:none !important; transition:none !important;}
+}
+
+/* ---------- DRAW-IN ROUTE LINES ---------- */
+.draw-path{
+  stroke-dasharray:1200;
+  stroke-dashoffset:1200;
+  transition:stroke-dashoffset 1.6s cubic-bezier(.2,.7,.2,1);
+}
+.in-view .draw-path{stroke-dashoffset:0;}
+@media (prefers-reduced-motion: reduce){
+  .draw-path{stroke-dashoffset:0; transition:none;}
+}
+
+/* ---------- ICON HOVER ---------- */
+.icon-ring{transition:transform 0.35s cubic-bezier(.34,1.4,.44,1), background 0.2s ease;}
+.pin-card:hover .icon-ring{transform:rotate(-6deg) scale(1.08);}
+
+/* ---------- NAV LINK UNDERLINE ---------- */
+.nav-links a{position:relative;}
+.nav-links a::after{
+  content:'';
+  position:absolute; left:0; bottom:-4px;
+  width:0; height:1.5px; background:var(--spray);
+  transition:width 0.25s ease;
+}
+.nav-links a:hover::after, .nav-links a:focus-visible::after{width:100%;}
+
+/* ---------- CTA MICRO-INTERACTION ---------- */
+.appstore-btn{transition:transform 0.2s cubic-bezier(.34,1.4,.44,1), box-shadow 0.2s ease;}
+.appstore-btn:hover{transform:translateY(-3px) scale(1.02); box-shadow:0 10px 24px rgba(0,0,0,0.18);}
+.appstore-btn:active{transform:translateY(-1px) scale(0.99);}
+
+/* ---------- HERO PIN PARALLAX ---------- */
+.hero-pins{transition:transform 0.2s ease-out;}
+.hero-pin{
+  animation:floatPin 4.5s ease-in-out infinite;
+}
+@keyframes floatPin{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-pin{animation:none;}
+  .hero-pins{transition:none !important; transform:none !important;}
 }
 
 /* ---------- SIMPLE PAGES (privacy/support) ---------- */
@@ -308,3 +397,9 @@ a:focus-visible, button:focus-visible{
 .doc p, .doc li{color:#333; line-height:1.75; font-size:0.98rem;}
 .doc ul{padding-left:20px;}
 .doc a.mailto{color:var(--spray); text-decoration:underline;}
+
+/* focus states */
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--spray);
+  outline-offset:3px;
+}
