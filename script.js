@@ -86,7 +86,102 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Hero shader - sayfa açılır açılmaz başlar (ilk ekran, lazy-load yok)
   initHeroShader(reduceMotion);
+
+  // Dünya globe'u - sadece bölüme yaklaşınca yüklenir (performans için)
+  initGlobeSection(reduceMotion);
 });
+
+function initGlobeSection(reduceMotion) {
+  var canvas = document.getElementById('art-globe');
+  if (!canvas) return;
+
+  if (reduceMotion) {
+    canvas.parentElement.classList.add('globe-fallback');
+    return;
+  }
+
+  var triggered = false;
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting && !triggered) {
+        triggered = true;
+        loadGlobe(canvas);
+        obs.disconnect();
+      }
+    });
+  }, { rootMargin: '250px' });
+  obs.observe(canvas);
+}
+
+function loadGlobe(canvas) {
+  var script = document.createElement('script');
+  script.type = 'module';
+  script.textContent =
+    "import createGlobe from 'https://esm.sh/cobe@0.6.3';" +
+    "window.__artfinderCreateGlobe = createGlobe;" +
+    "window.dispatchEvent(new Event('cobe-ready'));";
+
+  window.addEventListener('cobe-ready', function onReady() {
+    window.removeEventListener('cobe-ready', onReady);
+    if (window.__artfinderCreateGlobe) {
+      startGlobe(canvas, window.__artfinderCreateGlobe);
+    }
+  });
+
+  document.head.appendChild(script);
+}
+
+function startGlobe(canvas, createGlobe) {
+  var phi = 0;
+  var width = 0;
+
+  function onResize() {
+    width = canvas.offsetWidth;
+    canvas.width = width * 2;
+    canvas.height = width * 2;
+  }
+  window.addEventListener('resize', onResize);
+  onResize();
+
+  // Sanat/keşif temalı birkaç dünya şehri
+  var markers = [
+    { location: [48.8566, 2.3522], size: 0.05 },   // Paris
+    { location: [41.9028, 12.4964], size: 0.05 },  // Roma
+    { location: [35.6762, 139.6503], size: 0.05 }, // Tokyo
+    { location: [40.7128, -74.0060], size: 0.05 }, // New York
+    { location: [41.0082, 28.9784], size: 0.065 }, // İstanbul
+    { location: [-22.9068, -43.1729], size: 0.05 } // Rio de Janeiro
+  ];
+
+  var globe = createGlobe(canvas, {
+    devicePixelRatio: 2,
+    width: width * 2,
+    height: width * 2,
+    phi: 0,
+    theta: 0.3,
+    dark: 1,
+    diffuse: 1.2,
+    mapSamples: 8000,
+    mapBrightness: 6,
+    baseColor: [0.15, 0.15, 0.16],
+    markerColor: [1, 1, 1],
+    glowColor: [0.4, 0.4, 0.42],
+    markers: markers,
+    opacity: 0.9,
+    onRender: function (state) {
+      state.phi = phi;
+      phi += 0.0045;
+      state.width = width * 2;
+      state.height = width * 2;
+    }
+  });
+
+  setTimeout(function () { canvas.style.opacity = '1'; }, 60);
+
+  window.addEventListener('beforeunload', function () {
+    if (globe && globe.destroy) globe.destroy();
+  });
+}
 
 function initHeroShader(reduceMotion) {
   var holder = document.getElementById('hero-shader-holder');

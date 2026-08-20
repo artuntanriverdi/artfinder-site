@@ -160,16 +160,11 @@ img{max-width:100%;display:block;}
   .hero-pins{transition:none !important; transform:none !important;}
 }
 
-.hero-title{
-  font-family:'Archivo Black',sans-serif;
-  color:var(--paper);
-  font-size:clamp(3.2rem, 13vw, 7.5rem);
-  line-height:0.95;
-  letter-spacing:-0.02em;
-  margin:0;
-  text-transform:uppercase;
-  opacity:0; animation:riseIn 0.8s 0.1s ease forwards;
-  text-shadow:0 4px 40px rgba(0,0,0,0.5);
+.hero-title-logo{margin:0; opacity:0; animation:riseIn 0.8s 0.1s ease forwards;}
+.hero-logo-img{
+  width:min(560px, 74vw);
+  margin:0 auto;
+  filter:drop-shadow(0 6px 44px rgba(0,0,0,0.55));
 }
 @keyframes riseIn{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
 
@@ -406,4 +401,27 @@ footer{
 a:focus-visible, button:focus-visible{
   outline:2px solid var(--paper);
   outline-offset:3px;
+}
+
+/* ---------- WORLD GLOBE ---------- */
+.globe-wrap{
+  max-width:380px;
+  margin:40px auto 0;
+  aspect-ratio:1;
+  position:relative;
+}
+#art-globe{
+  width:100%;
+  height:100%;
+  opacity:0;
+  transition:opacity 1s ease;
+  cursor:grab;
+}
+.globe-fallback #art-globe{display:none;}
+.globe-fallback::after{
+  content:'';
+  position:absolute; inset:0;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, rgba(255,255,255,0.16), rgba(255,255,255,0.02) 60%), var(--card);
+  border:1px solid var(--line);
 }
