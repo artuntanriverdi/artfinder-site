@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var field = document.querySelector('.hero-pins');
   var pinEls = [];
   if (field) {
-    var colors = ['var(--pin-orange)', 'var(--pin-blue)', 'var(--pin-purple)', 'var(--spray)'];
+    var colors = ['rgba(255,255,255,0.9)', 'rgba(255,255,255,0.6)', 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.75)'];
     for (var i = 0; i < 14; i++) {
       var pin = document.createElement('div');
       pin.className = 'hero-pin';
