@@ -99,22 +99,18 @@ img{max-width:100%;display:block;}
   text-align:center;
 }
 .hero::before{
-  content:'';
-  position:absolute; inset:0;
-  background-image:radial-gradient(rgba(255,255,255,0.09) 1.4px, transparent 1.4px);
-  background-size:26px 26px;
-  opacity:0.5;
-  pointer-events:none;
+  content:none;
 }
-.hero-watermark{
-  position:absolute;
-  top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  width:min(1100px, 150vw);
-  opacity:0.06;
-  pointer-events:none;
+.hero-shader-holder{
+  position:absolute; inset:0;
   z-index:0;
-  filter:blur(0.3px);
+  overflow:hidden;
+}
+.hero-shader-holder canvas{
+  display:block;
+  width:100% !important;
+  height:100% !important;
+  opacity:0.85;
 }
 .hero-inner{position:relative; z-index:1; max-width:720px; margin:0 auto;}
 .hero-logo{width:150px; margin:0 auto 36px; opacity:0; animation:riseIn 0.7s 0.05s ease forwards;}
@@ -162,7 +158,7 @@ img{max-width:100%;display:block;}
   border-radius:999px;
 }
 
-.hero-pins{position:absolute; inset:0; pointer-events:none;}
+.hero-pins{position:absolute; inset:0; pointer-events:none; z-index:1;}
 .hero-pin{
   position:absolute;
   width:10px; height:10px;
@@ -171,7 +167,7 @@ img{max-width:100%;display:block;}
 }
 .hero-route{
   position:absolute; inset:0; width:100%; height:100%;
-  pointer-events:none; opacity:0.5;
+  pointer-events:none; opacity:0.5; z-index:1;
 }
 
 /* ---------- SECTION SHELL ---------- */
@@ -402,51 +398,4 @@ footer{
 a:focus-visible, button:focus-visible{
   outline:2px solid var(--spray);
   outline-offset:3px;
-}
-
-/* ---------- SHADER SIGNATURE SECTION ---------- */
-.shader-section{
-  position:relative;
-  width:100%;
-  height:56vh;
-  min-height:360px;
-  max-height:520px;
-  overflow:hidden;
-  background:var(--ink);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.shader-canvas-holder{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-}
-.shader-canvas-holder canvas{
-  display:block;
-  width:100% !important;
-  height:100% !important;
-}
-.shader-fallback{
-  position:absolute; inset:0;
-  background-image:radial-gradient(rgba(224,64,47,0.16) 1.4px, transparent 1.4px);
-  background-size:22px 22px;
-}
-.shader-content{
-  position:relative;
-  z-index:2;
-  text-align:center;
-  padding:0 28px;
-  pointer-events:none;
-}
-.shader-content .eyebrow{color:rgba(255,255,255,0.55); margin-bottom:14px;}
-.shader-content h2{
-  font-family:'Archivo Black',sans-serif;
-  color:#fff;
-  font-size:clamp(2rem, 6vw, 3.6rem);
-  text-transform:uppercase;
-  line-height:1.02;
-  margin:0;
-  text-shadow:0 2px 24px rgba(0,0,0,0.6);
 }

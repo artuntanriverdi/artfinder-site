@@ -63,35 +63,18 @@ document.addEventListener('DOMContentLoaded', function () {
     revealEls.forEach(function (el) { el.classList.add('in-view'); });
   }
 
-  // Shader imza bölümü - Three.js ile akan siyah/beyaz/kırmızı çizgiler
-  initShaderSection(reduceMotion);
+  // Hero shader - sayfa açılır açılmaz başlar (ilk ekran, lazy-load yok)
+  initHeroShader(reduceMotion);
 });
 
-function initShaderSection(reduceMotion) {
-  var holder = document.getElementById('shader-canvas-holder');
+function initHeroShader(reduceMotion) {
+  var holder = document.getElementById('hero-shader-holder');
   if (!holder) return;
 
-  // Hareket azaltma tercihi varsa, sabit noktalı bir doku göster, WebGL hiç yüklenmesin
-  if (reduceMotion) {
-    var fallback = document.createElement('div');
-    fallback.className = 'shader-fallback';
-    holder.appendChild(fallback);
-    return;
-  }
+  // Hareket azaltma tercihi varsa, WebGL hiç yüklenmesin
+  if (reduceMotion) return;
 
-  // Sadece bölüm görünüme yaklaşınca yükle (performans için)
-  var triggered = false;
-  var lazyObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting && !triggered) {
-        triggered = true;
-        loadThreeAndStart(holder);
-        lazyObserver.disconnect();
-      }
-    });
-  }, { rootMargin: '300px' });
-
-  lazyObserver.observe(holder);
+  loadThreeAndStart(holder);
 }
 
 function loadThreeAndStart(holder) {
@@ -122,8 +105,8 @@ function startShader(container) {
 
   var vertexShader = 'void main() { gl_Position = vec4( position, 1.0 ); }';
 
-  // Fragment shader: orijinal akış efekti korunuyor, ama çıkış rengi
-  // sitenin siyah/beyaz/kırmızı (spray) paletine uyarlanmış duotone.
+  // Fragment shader: akış efekti korunuyor, çıkış rengi metalik
+  // (koyu çelik -> gümüş -> parlak beyaz highlight) bir palete uyarlandı.
   var fragmentShader = [
     'precision highp float;',
     'uniform vec2 resolution;',
@@ -144,11 +127,12 @@ function startShader(container) {
     '    }',
     '  }',
     '  float intensity = clamp(raw.r + raw.g + raw.b, 0.0, 1.0);',
-    '  vec3 white = vec3(1.0, 1.0, 1.0);',
-    '  vec3 spray = vec3(0.878, 0.251, 0.184);',
-    '  vec3 tint = mix(white, spray, 0.4 + 0.3 * sin(time*0.15));',
-    '  vec3 finalColor = mix(vec3(0.0), tint, intensity);',
-    '  gl_FragColor = vec4(finalColor, 1.0);',
+    '  vec3 steelDark = vec3(0.03, 0.035, 0.04);',
+    '  vec3 steelMid = vec3(0.42, 0.44, 0.47);',
+    '  vec3 highlight = vec3(1.0, 1.0, 1.0);',
+    '  vec3 color = mix(steelDark, steelMid, smoothstep(0.0, 0.5, intensity));',
+    '  color = mix(color, highlight, smoothstep(0.5, 1.0, intensity));',
+    '  gl_FragColor = vec4(color, 1.0);',
     '}'
   ].join('\n');
 
@@ -175,11 +159,10 @@ function startShader(container) {
   window.addEventListener('resize', resize, false);
 
   var visible = true;
-  var sectionEl = document.getElementById('shader-section');
-  if (sectionEl && 'IntersectionObserver' in window) {
+  if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) { visible = entry.isIntersecting; });
-    }, { threshold: 0.05 }).observe(sectionEl);
+    }, { threshold: 0.05 }).observe(container);
   }
 
   function animate() {
