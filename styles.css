@@ -107,14 +107,34 @@ img{max-width:100%;display:block;}
 .nav-menu-btn span{display:block;width:22px;height:2px;background:var(--paper);margin:5px 0;}
 
 @media (max-width:760px){
+  .nav{padding:14px 20px;}
   .nav-links{
     position:fixed; inset:64px 0 0 0; background:var(--ink);
     flex-direction:column; padding:32px 28px; gap:22px; font-size:1.1rem;
     transform:translateY(-110%); transition:transform 0.25s ease; border-top:1px solid var(--line);
   }
   .nav-links.open{transform:translateY(0);}
-  .nav-menu-btn{display:block;}
+  .nav-menu-btn{display:block; padding:11px;}
+  .nav-menu-btn span{width:22px;}
   .nav-cta{display:none;}
+  .lang-btn{padding:8px 12px;}
+
+  .hero{padding:80px 24px 56px; min-height:52vh;}
+  .intro-band{padding:0 24px 64px;}
+  .section{padding:64px 24px;}
+  .section-lead{margin-bottom:40px;}
+
+  .pin-card{padding:26px 22px;}
+  .steps{border-top:none;}
+  .step{padding:24px 0; grid-template-columns:56px 1fr;}
+  .split{gap:40px;}
+  .split-visual{aspect-ratio:1;}
+
+  .cta-band{padding:64px 24px;}
+  footer{padding:40px 24px 28px;}
+  .footer-inner{justify-content:center; text-align:center;}
+
+  .doc{padding:56px 24px 80px;}
 }
 
 /* ---------- HERO ---------- */

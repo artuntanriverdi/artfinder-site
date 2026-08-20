@@ -168,11 +168,13 @@ function loadGlobe(canvas) {
 function startGlobe(canvas, createGlobe) {
   var phi = 0;
   var width = 0;
+  var isMobile = window.innerWidth < 700;
+  var dpr = isMobile ? Math.min(window.devicePixelRatio || 1, 1.5) : 2;
 
   function onResize() {
     width = canvas.offsetWidth;
-    canvas.width = width * 2;
-    canvas.height = width * 2;
+    canvas.width = width * dpr;
+    canvas.height = width * dpr;
   }
   window.addEventListener('resize', onResize);
   onResize();
@@ -188,14 +190,14 @@ function startGlobe(canvas, createGlobe) {
   ];
 
   var globe = createGlobe(canvas, {
-    devicePixelRatio: 2,
-    width: width * 2,
-    height: width * 2,
+    devicePixelRatio: dpr,
+    width: width * dpr,
+    height: width * dpr,
     phi: 0,
     theta: 0.3,
     dark: 1,
     diffuse: 1.2,
-    mapSamples: 8000,
+    mapSamples: isMobile ? 4000 : 8000,
     mapBrightness: 6,
     baseColor: [0.15, 0.15, 0.16],
     markerColor: [1, 1, 1],
@@ -205,8 +207,8 @@ function startGlobe(canvas, createGlobe) {
     onRender: function (state) {
       state.phi = phi;
       phi += 0.0045;
-      state.width = width * 2;
-      state.height = width * 2;
+      state.width = width * dpr;
+      state.height = width * dpr;
     }
   });
 
@@ -291,7 +293,8 @@ function startShader(container) {
   scene.add(mesh);
 
   var renderer = new THREE.WebGLRenderer({ antialias: false });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  var isMobileHero = window.innerWidth < 700;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobileHero ? 1.5 : 2));
   container.appendChild(renderer.domElement);
 
   function resize() {
