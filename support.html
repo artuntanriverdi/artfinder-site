@@ -1,54 +1,58 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Destek — ArtFinder</title>
-<link rel="icon" href="assets/favicon.png">
+<title>Support — ArtFinder</title>
+<link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <nav class="nav">
-  <a href="index.html"><img src="assets/artfinder_logo_black.png" alt="ArtFinder" class="nav-logo"></a>
+  <a href="index.html"><img src="artfinder_logo_white.png" alt="ArtFinder" class="nav-logo"></a>
   <ul class="nav-links">
-    <li><a href="index.html#features">Özellikler</a></li>
-    <li><a href="privacy.html">Gizlilik</a></li>
+    <li><a href="index.html#features" data-en="Features" data-tr="Özellikler">Features</a></li>
+    <li><a href="privacy.html" data-en="Privacy" data-tr="Gizlilik">Privacy</a></li>
   </ul>
-  <a class="nav-cta" href="index.html#get">Uygulamayı al</a>
-  <button class="nav-menu-btn" aria-label="Menü"><span></span><span></span><span></span></button>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" class="lang-btn" data-lang="en">EN</button>
+    <button type="button" class="lang-btn" data-lang="tr">TR</button>
+  </div>
+  <a class="nav-cta" href="index.html#get" data-en="Get the app" data-tr="Uygulamayı al">Get the app</a>
+  <button class="nav-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <main class="doc">
-  <span class="eyebrow mono">// Yardım</span>
-  <h1>Destek</h1>
-  <p class="updated">Bir sorunla mı karşılaştın, önerin mi var? Buradayız.</p>
+  <span class="eyebrow mono" data-en="// Help" data-tr="// Yardım">// Help</span>
+  <h1 data-en="Support" data-tr="Destek">Support</h1>
+  <p class="updated" data-en="Ran into an issue, or have a suggestion? We're here." data-tr="Bir sorunla mı karşılaştın, önerin mi var? Buradayız.">Ran into an issue, or have a suggestion? We're here.</p>
 
-  <h2>Sıkça sorulanlar</h2>
+  <h2 data-en="Frequently asked" data-tr="Sıkça sorulanlar">Frequently asked</h2>
 
-  <h2 style="margin-top:28px; font-size:1.05rem;">Eser eklerken konumum yanlış görünüyor</h2>
-  <p>Cihazının konum izninin açık olduğundan emin ol: Ayarlar → Gizlilik ve Güvenlik → Konum Servisleri → ArtFinder → "Uygulamayı Kullanırken".</p>
+  <h2 style="margin-top:28px; font-size:1.05rem;" data-en="My location looks wrong when adding a piece" data-tr="Eser eklerken konumum yanlış görünüyor">My location looks wrong when adding a piece</h2>
+  <p data-en="Make sure location permission is enabled on your device: Settings → Privacy & Security → Location Services → ArtFinder → &quot;While Using the App&quot;." data-tr="Cihazının konum izninin açık olduğundan emin ol: Ayarlar → Gizlilik ve Güvenlik → Konum Servisleri → ArtFinder → &quot;Uygulamayı Kullanırken&quot;.">Make sure location permission is enabled on your device: Settings → Privacy & Security → Location Services → ArtFinder → "While Using the App".</p>
 
-  <h2 style="margin-top:28px; font-size:1.05rem;">Fotoğrafım yüklenmiyor</h2>
-  <p>İnternet bağlantını kontrol et. Çok büyük boyutlu fotoğraflarda yükleme biraz zaman alabilir.</p>
+  <h2 style="margin-top:28px; font-size:1.05rem;" data-en="My photo won't upload" data-tr="Fotoğrafım yüklenmiyor">My photo won't upload</h2>
+  <p data-en="Check your internet connection. Very large photos may take a bit longer to upload." data-tr="İnternet bağlantını kontrol et. Çok büyük boyutlu fotoğraflarda yükleme biraz zaman alabilir.">Check your internet connection. Very large photos may take a bit longer to upload.</p>
 
-  <h2 style="margin-top:28px; font-size:1.05rem;">Hesabımı nasıl silerim?</h2>
-  <p>Aşağıdaki e-posta adresinden bize ulaş, hesabını ve tüm verilerini sileriz.</p>
+  <h2 style="margin-top:28px; font-size:1.05rem;" data-en="How do I delete my account?" data-tr="Hesabımı nasıl silerim?">How do I delete my account?</h2>
+  <p data-en="Reach out at the email below and we'll delete your account and all your data." data-tr="Aşağıdaki e-posta adresinden bize ulaş, hesabını ve tüm verilerini sileriz.">Reach out at the email below and we'll delete your account and all your data.</p>
 
-  <h2>Bize ulaş</h2>
-  <p>Her türlü soru, hata bildirimi ve öneri için: <a class="mailto" href="mailto:destek@artfinderapp.com">destek@artfinderapp.com</a></p>
-  <p>Geri bildirimlerine genelde 2-3 iş günü içinde dönüş yaparız.</p>
+  <h2 data-en="Contact us" data-tr="Bize ulaş">Contact us</h2>
+  <p><span data-en="For any question, bug report, or suggestion: " data-tr="Her türlü soru, hata bildirimi ve öneri için: ">For any question, bug report, or suggestion: </span><a class="mailto" href="mailto:support@artfinderapp.com">support@artfinderapp.com</a></p>
+  <p data-en="We usually reply within 2-3 business days." data-tr="Geri bildirimlerine genelde 2-3 iş günü içinde dönüş yaparız.">We usually reply within 2-3 business days.</p>
 </main>
 
 <footer>
   <div class="footer-inner">
-    <img src="assets/artfinder_logo_white.png" alt="ArtFinder" class="footer-logo">
+    <img src="artfinder_logo_white.png" alt="ArtFinder" class="footer-logo">
     <ul class="footer-links">
-      <li><a href="privacy.html">Gizlilik Politikası</a></li>
-      <li><a href="support.html">Destek</a></li>
+      <li><a href="privacy.html" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Privacy Policy</a></li>
+      <li><a href="support.html" data-en="Support" data-tr="Destek">Support</a></li>
     </ul>
   </div>
-  <div class="footer-tag">© 2026 ArtFinder — Discover art on the map.</div>
+  <div class="footer-tag" data-en="© 2026 ArtFinder — Discover art on the map." data-tr="© 2026 ArtFinder — Sanatı haritada keşfet.">© 2026 ArtFinder — Discover art on the map.</div>
 </footer>
 
 <script src="script.js"></script>

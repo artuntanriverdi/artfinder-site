@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ArtFinder — Discover art on the map</title>
-<meta name="description" content="ArtFinder: sokak sanatını, heykelleri, mozaikleri ve müzeleri haritada keşfet. Kendi bulduğun eseri ekle, puanla, takip et.">
-<link rel="icon" href="assets/favicon.png">
+<meta name="description" content="ArtFinder: discover street art, sculptures, mosaics and museums on the map. Add, rate, and follow the art you find.">
+<link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <nav class="nav">
-  <img src="assets/artfinder_logo_black.png" alt="ArtFinder" class="nav-logo">
+  <img src="artfinder_logo_white.png" alt="ArtFinder" class="nav-logo">
   <ul class="nav-links">
-    <li><a href="#features">Özellikler</a></li>
-    <li><a href="#how">Nasıl çalışır</a></li>
-    <li><a href="#community">Topluluk</a></li>
-    <li><a href="support.html">Destek</a></li>
+    <li><a href="#features" data-en="Features" data-tr="Özellikler">Features</a></li>
+    <li><a href="#how" data-en="How it works" data-tr="Nasıl çalışır">How it works</a></li>
+    <li><a href="#community" data-en="Community" data-tr="Topluluk">Community</a></li>
+    <li><a href="support.html" data-en="Support" data-tr="Destek">Support</a></li>
   </ul>
-  <a class="nav-cta" href="#get">Uygulamayı al</a>
-  <button class="nav-menu-btn" aria-label="Menü">
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" class="lang-btn" data-lang="en">EN</button>
+    <button type="button" class="lang-btn" data-lang="tr">TR</button>
+  </div>
+  <a class="nav-cta" href="#get" data-en="Get the app" data-tr="Uygulamayı al">Get the app</a>
+  <button class="nav-menu-btn" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -33,83 +37,86 @@
   </svg>
   <div class="hero-inner">
     <h1 class="hero-title">ArtFinder</h1>
-    <p class="hero-tagline">Bul <span class="dot-sep">.</span> Pinle <span class="dot-sep">.</span> Paylaş<span class="dot-sep">.</span></p>
-    <p>Sokakta gördüğün bir grafiti, bir heykel, bir mozaik — anında haritaya işle. Yakınındaki müzeleri ve tescilli sokak sanatını otomatik keşfet.</p>
-    <div class="badge-row" id="get">
-      <a class="appstore-btn" href="#">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.55C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.5 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.02.07-.42 1.44-1.38 2.84M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        <span>App Store'da yakında</span>
-      </a>
-      <span class="soon-tag">TestFlight beta aşamasında</span>
-    </div>
   </div>
 </header>
 
+<section class="intro-band">
+  <span class="eyebrow reveal" data-en="// Discover art on the map" data-tr="// Sanatı haritada keşfet">// Discover art on the map</span>
+  <p class="intro-lead reveal" data-en="Find a mural, a sculpture, a mosaic on the street — pin it instantly. Nearby museums and verified street art surface automatically." data-tr="Sokakta gördüğün bir grafiti, bir heykel, bir mozaik — anında haritaya işle. Yakınındaki müzeleri ve tescilli sokak sanatını otomatik keşfet.">Find a mural, a sculpture, a mosaic on the street — pin it instantly. Nearby museums and verified street art surface automatically.</p>
+  <div class="badge-row reveal" id="get">
+    <a class="appstore-btn" href="#">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.55C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.5 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.02.07-.42 1.44-1.38 2.84M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span data-en="Coming soon on the App Store" data-tr="App Store'da yakında">Coming soon on the App Store</span>
+    </a>
+    <span class="soon-tag" data-en="In TestFlight beta" data-tr="TestFlight beta aşamasında">In TestFlight beta</span>
+  </div>
+</section>
+
 <section class="section" id="features">
   <span class="eyebrow reveal">// 39.9334°N, 32.8597°E</span>
-  <h2 class="reveal">Her eserin bir konumu var.</h2>
-  <p class="section-lead reveal">ArtFinder, gördüğün sanatı unutmadan işaretlemen için var. Kendi eklediklerin, başkalarının paylaştıkları ve dünyanın açık arşivlerinden gelen eserler — hepsi tek haritada.</p>
+  <h2 class="reveal" data-en="Every piece has a place." data-tr="Her eserin bir konumu var.">Every piece has a place.</h2>
+  <p class="section-lead reveal" data-en="ArtFinder exists so you never lose track of the art you find. What you add, what others share, and pieces pulled from the world's open archives — all on one map." data-tr="ArtFinder, gördüğün sanatı unutmadan işaretlemen için var. Kendi eklediklerin, başkalarının paylaştıkları ve dünyanın açık arşivlerinden gelen eserler — hepsi tek haritada.">ArtFinder exists so you never lose track of the art you find. What you add, what others share, and pieces pulled from the world's open archives — all on one map.</p>
 
   <div class="pin-grid reveal-stagger">
     <div class="pin-card reveal-child">
-      <div class="icon-ring orange">
+      <div class="icon-ring">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.2"/></svg>
       </div>
-      <div class="coords mono"><span class="dot orange"></span>Kendi eklediklerin</div>
-      <h3>Fotoğrafla, puanla, not düş</h3>
-      <p>Bulduğun eseri fotoğrafla, 5 üzerinden puanla, kısa bir not bırak. Tam konumuyla haritana işlenir.</p>
+      <div class="coords mono"><span class="dot"></span><span data-en="Your own finds" data-tr="Kendi eklediklerin">Your own finds</span></div>
+      <h3 data-en="Photograph, rate, note it" data-tr="Fotoğrafla, puanla, not düş">Photograph, rate, note it</h3>
+      <p data-en="Photograph what you find, rate it out of 5, leave a short note. It's pinned with the exact location." data-tr="Bulduğun eseri fotoğrafla, 5 üzerinden puanla, kısa bir not bırak. Tam konumuyla haritana işlenir.">Photograph what you find, rate it out of 5, leave a short note. It's pinned with the exact location.</p>
     </div>
     <div class="pin-card reveal-child">
-      <div class="icon-ring blue">
+      <div class="icon-ring">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-6 7 6v11"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg>
       </div>
-      <div class="coords mono"><span class="dot blue"></span>Yakındaki müzeler</div>
-      <h3>Müzeler otomatik gelir</h3>
-      <p>Wikipedia'nın açık verisinden, çevrendeki müzeleri ve kısa tanıtım bilgilerini haritada görürsün.</p>
+      <div class="coords mono"><span class="dot"></span><span data-en="Nearby museums" data-tr="Yakındaki müzeler">Nearby museums</span></div>
+      <h3 data-en="Museums show up automatically" data-tr="Müzeler otomatik gelir">Museums show up automatically</h3>
+      <p data-en="From Wikipedia's open data, see nearby museums and a short introduction, right on the map." data-tr="Wikipedia'nın açık verisinden, çevrendeki müzeleri ve kısa tanıtım bilgilerini haritada görürsün.">From Wikipedia's open data, see nearby museums and a short introduction, right on the map.</p>
     </div>
     <div class="pin-card reveal-child">
-      <div class="icon-ring purple">
+      <div class="icon-ring">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="6" height="11" rx="2"/><path d="M9 14v3M6 20h6M11 6h4l2 3v9h-6"/></svg>
       </div>
-      <div class="coords mono"><span class="dot purple"></span>Sokak sanatı arşivi</div>
-      <h3>Tescilli sokak sanatı</h3>
-      <p>Wikimedia Commons'ta konum etiketli, gerçek sokak sanatı fotoğrafları — sana en yakın olanlar öne çıkar.</p>
+      <div class="coords mono"><span class="dot"></span><span data-en="Street art archive" data-tr="Sokak sanatı arşivi">Street art archive</span></div>
+      <h3 data-en="Verified street art" data-tr="Tescilli sokak sanatı">Verified street art</h3>
+      <p data-en="Real, geotagged street art photos from Wikimedia Commons — the closest ones surface first." data-tr="Wikimedia Commons'ta konum etiketli, gerçek sokak sanatı fotoğrafları — sana en yakın olanlar öne çıkar.">Real, geotagged street art photos from Wikimedia Commons — the closest ones surface first.</p>
     </div>
     <div class="pin-card reveal-child">
-      <div class="icon-ring spray">
+      <div class="icon-ring">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 5 5.6.6-4 4 1 5.6L12 14.8 6.9 17.2l1-5.6-4-4L9.6 7z"/></svg>
       </div>
-      <div class="coords mono"><span class="dot spray"></span>Sana özel</div>
-      <h3>Zevkine göre öneri</h3>
-      <p>Yüksek puan verdiğin sanatçılara ve bölgelere göre, feed'inde sana özel eserler önerilir.</p>
+      <div class="coords mono"><span class="dot"></span><span data-en="For you" data-tr="Sana özel">For you</span></div>
+      <h3 data-en="Recommended to your taste" data-tr="Zevkine göre öneri">Recommended to your taste</h3>
+      <p data-en="Based on artists and regions you've rated highly, your feed suggests pieces just for you." data-tr="Yüksek puan verdiğin sanatçılara ve bölgelere göre, feed'inde sana özel eserler önerilir.">Based on artists and regions you've rated highly, your feed suggests pieces just for you.</p>
     </div>
   </div>
 </section>
 
 <section class="section" id="how">
-  <span class="eyebrow reveal">// Rota</span>
-  <h2 class="reveal">Üç adımda haritan dolsun.</h2>
+  <span class="eyebrow reveal" data-en="// Route" data-tr="// Rota">// Route</span>
+  <h2 class="reveal" data-en="Fill your map in three steps." data-tr="Üç adımda haritan dolsun.">Fill your map in three steps.</h2>
 
   <div class="steps reveal-stagger">
     <div class="step reveal-child">
       <div class="step-num mono">01</div>
       <div>
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Bir eser bul</h3>
-        <p>Sokakta, parkta, bir duvarda — dikkatini çeken her şey say olur.</p>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span data-en="Find a piece" data-tr="Bir eser bul">Find a piece</span></h3>
+        <p data-en="On the street, in a park, on a wall — anything that catches your eye counts." data-tr="Sokakta, parkta, bir duvarda — dikkatini çeken her şey say olur.">On the street, in a park, on a wall — anything that catches your eye counts.</p>
       </div>
     </div>
     <div class="step reveal-child">
       <div class="step-num mono">02</div>
       <div>
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg>Fotoğrafla ve pinle</h3>
-        <p>Bulunduğun konum otomatik algılanır. Foto çek, yıldızla puanla, kısa bir yorum yaz.</p>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span data-en="Photograph and pin it" data-tr="Fotoğrafla ve pinle">Photograph and pin it</span></h3>
+        <p data-en="Your location is detected automatically. Snap a photo, rate it with stars, leave a short comment." data-tr="Bulunduğun konum otomatik algılanır. Foto çek, yıldızla puanla, kısa bir yorum yaz.">Your location is detected automatically. Snap a photo, rate it with stars, leave a short comment.</p>
       </div>
     </div>
     <div class="step reveal-child">
       <div class="step-num mono">03</div>
       <div>
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><circle cx="18" cy="8" r="2.4"/><path d="M15.5 14c2.9.4 5.5 2.6 5.5 6"/></svg>Keşfet ve takip et</h3>
-        <p>Başkalarının eklediklerine göz at, beğendiğin kişileri takip et, feed'inde sana özel öneriler gör.</p>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><circle cx="18" cy="8" r="2.4"/><path d="M15.5 14c2.9.4 5.5 2.6 5.5 6"/></svg><span data-en="Explore and follow" data-tr="Keşfet ve takip et">Explore and follow</span></h3>
+        <p data-en="Browse what others have added, follow the people you like, get personal picks in your feed." data-tr="Başkalarının eklediklerine göz at, beğendiğin kişileri takip et, feed'inde sana özel öneriler gör.">Browse what others have added, follow the people you like, get personal picks in your feed.</p>
       </div>
     </div>
   </div>
@@ -118,9 +125,9 @@
 <section class="section" id="community">
   <div class="split">
     <div class="reveal">
-      <span class="eyebrow">// Topluluk</span>
-      <h2>Yalnız gezme.</h2>
-      <p class="section-lead" style="margin-bottom:24px;">Beğendiğin gözleri takip et. Kimin nereye baktığını gör, kendi haritanı onların keşifleriyle zenginleştir. İngilizce ve Türkçe tam destekli.</p>
+      <span class="eyebrow" data-en="// Community" data-tr="// Topluluk">// Community</span>
+      <h2 data-en="Don't wander alone." data-tr="Yalnız gezme.">Don't wander alone.</h2>
+      <p class="section-lead" style="margin-bottom:24px;" data-en="Follow the eyes you like. See where they've been, and enrich your own map with their discoveries. Full English and Turkish support." data-tr="Beğendiğin gözleri takip et. Kimin nereye baktığını gör, kendi haritanı onların keşifleriyle zenginleştir. İngilizce ve Türkçe tam destekli.">Follow the eyes you like. See where they've been, and enrich your own map with their discoveries. Full English and Turkish support.</p>
     </div>
     <div class="split-visual reveal">
       <svg class="route-svg" viewBox="0 0 400 300" fill="none">
@@ -135,25 +142,25 @@
 </section>
 
 <section class="cta-band">
-  <span class="eyebrow mono reveal">// Haritan seni bekliyor</span>
-  <h2 class="reveal">Şimdi bir pin bırak.</h2>
+  <span class="eyebrow mono reveal" data-en="// Your map is waiting" data-tr="// Haritan seni bekliyor">// Your map is waiting</span>
+  <h2 class="reveal" data-en="Drop a pin now." data-tr="Şimdi bir pin bırak.">Drop a pin now.</h2>
   <div class="badge-row reveal">
     <a class="appstore-btn" href="#">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.55C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.5 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.02.07-.42 1.44-1.38 2.84M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      <span>App Store'da yakında</span>
+      <span data-en="Coming soon on the App Store" data-tr="App Store'da yakında">Coming soon on the App Store</span>
     </a>
   </div>
 </section>
 
 <footer>
   <div class="footer-inner">
-    <img src="assets/artfinder_logo_white.png" alt="ArtFinder" class="footer-logo">
+    <img src="artfinder_logo_white.png" alt="ArtFinder" class="footer-logo">
     <ul class="footer-links">
-      <li><a href="privacy.html">Gizlilik Politikası</a></li>
-      <li><a href="support.html">Destek</a></li>
+      <li><a href="privacy.html" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Privacy Policy</a></li>
+      <li><a href="support.html" data-en="Support" data-tr="Destek">Support</a></li>
     </ul>
   </div>
-  <div class="footer-tag">© 2026 ArtFinder — Discover art on the map.</div>
+  <div class="footer-tag" data-en="© 2026 ArtFinder — Discover art on the map." data-tr="© 2026 ArtFinder — Sanatı haritada keşfet.">© 2026 ArtFinder — Discover art on the map.</div>
 </footer>
 
 <script src="script.js"></script>

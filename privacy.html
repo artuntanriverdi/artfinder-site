@@ -1,66 +1,70 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gizlilik Politikası — ArtFinder</title>
-<link rel="icon" href="assets/favicon.png">
+<title>Privacy Policy — ArtFinder</title>
+<link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <nav class="nav">
-  <a href="index.html"><img src="assets/artfinder_logo_black.png" alt="ArtFinder" class="nav-logo"></a>
+  <a href="index.html"><img src="artfinder_logo_white.png" alt="ArtFinder" class="nav-logo"></a>
   <ul class="nav-links">
-    <li><a href="index.html#features">Özellikler</a></li>
-    <li><a href="support.html">Destek</a></li>
+    <li><a href="index.html#features" data-en="Features" data-tr="Özellikler">Features</a></li>
+    <li><a href="support.html" data-en="Support" data-tr="Destek">Support</a></li>
   </ul>
-  <a class="nav-cta" href="index.html#get">Uygulamayı al</a>
-  <button class="nav-menu-btn" aria-label="Menü"><span></span><span></span><span></span></button>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" class="lang-btn" data-lang="en">EN</button>
+    <button type="button" class="lang-btn" data-lang="tr">TR</button>
+  </div>
+  <a class="nav-cta" href="index.html#get" data-en="Get the app" data-tr="Uygulamayı al">Get the app</a>
+  <button class="nav-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <main class="doc">
-  <span class="eyebrow mono">// Yasal</span>
-  <h1>Gizlilik Politikası</h1>
-  <p class="updated">Son güncelleme: 14 Ağustos 2026</p>
+  <span class="eyebrow mono" data-en="// Legal" data-tr="// Yasal">// Legal</span>
+  <h1 data-en="Privacy Policy" data-tr="Gizlilik Politikası">Privacy Policy</h1>
+  <p class="updated" data-en="Last updated: August 14, 2026" data-tr="Son güncelleme: 14 Ağustos 2026">Last updated: August 14, 2026</p>
 
-  <p>ArtFinder ("uygulama"), kullanıcılarının gizliliğine önem verir. Bu sayfa, uygulamayı kullanırken hangi verilerin toplandığını, nasıl kullanıldığını ve saklandığını açıklar.</p>
+  <p data-en="ArtFinder (&quot;the app&quot;) cares about your privacy. This page explains what data is collected while you use the app, how it's used, and how it's stored." data-tr="ArtFinder (&quot;uygulama&quot;), kullanıcılarının gizliliğine önem verir. Bu sayfa, uygulamayı kullanırken hangi verilerin toplandığını, nasıl kullanıldığını ve saklandığını açıklar.">ArtFinder ("the app") cares about your privacy. This page explains what data is collected while you use the app, how it's used, and how it's stored.</p>
 
-  <h2>Topladığımız veriler</h2>
+  <h2 data-en="Data we collect" data-tr="Topladığımız veriler">Data we collect</h2>
   <ul>
-    <li><strong>Hesap bilgileri:</strong> Kayıt olurken verdiğin isim ve e-posta adresi.</li>
-    <li><strong>Konum verisi:</strong> Yakınındaki eserleri, müzeleri ve sokak sanatını gösterebilmek için, izin verdiğinde cihazının konumunu kullanırız. Bir eser eklerken seçtiğin konum, o eserle birlikte kaydedilir.</li>
-    <li><strong>Fotoğraflar:</strong> Eklediğin eser fotoğrafları, sunucularımızda (Firebase Storage) saklanır ve uygulama içinde diğer kullanıcılarla paylaşılır.</li>
-    <li><strong>Kullanıcı içeriği:</strong> Eklediğin başlık, yorum, puan ve sanatçı bilgisi gibi içerikler herkese açık feed'de görünür.</li>
-    <li><strong>Takip ilişkileri:</strong> Kimi takip ettiğin ve seni kimin takip ettiği bilgisi.</li>
+    <li data-en="Account info: the name and email you provide when signing up." data-tr="Hesap bilgileri: Kayıt olurken verdiğin isim ve e-posta adresi.">Account info: the name and email you provide when signing up.</li>
+    <li data-en="Location data: with your permission, we use your device location to show nearby art, museums, and street art. The location you choose when adding a piece is saved with it." data-tr="Konum verisi: Yakınındaki eserleri, müzeleri ve sokak sanatını gösterebilmek için, izin verdiğinde cihazının konumunu kullanırız. Bir eser eklerken seçtiğin konum, o eserle birlikte kaydedilir.">Location data: with your permission, we use your device location to show nearby art, museums, and street art. The location you choose when adding a piece is saved with it.</li>
+    <li data-en="Photos: photos you add are stored on our servers (Firebase Storage) and shared with other users inside the app." data-tr="Fotoğraflar: Eklediğin eser fotoğrafları, sunucularımızda (Firebase Storage) saklanır ve uygulama içinde diğer kullanıcılarla paylaşılır.">Photos: photos you add are stored on our servers (Firebase Storage) and shared with other users inside the app.</li>
+    <li data-en="User content: titles, comments, ratings, and artist info you add appear in the public feed." data-tr="Kullanıcı içeriği: Eklediğin başlık, yorum, puan ve sanatçı bilgisi gibi içerikler herkese açık feed'de görünür.">User content: titles, comments, ratings, and artist info you add appear in the public feed.</li>
+    <li data-en="Follow relationships: who you follow and who follows you." data-tr="Takip ilişkileri: Kimi takip ettiğin ve seni kimin takip ettiği bilgisi.">Follow relationships: who you follow and who follows you.</li>
   </ul>
 
-  <h2>Verileri nasıl kullanıyoruz</h2>
-  <p>Topladığımız veriler yalnızca uygulamanın temel işlevlerini sağlamak için kullanılır: haritada eser gösterme, yakınındaki içerikleri önerme, kişiselleştirilmiş öneriler sunma ve hesabını yönetme. Verilerini üçüncü taraflara satmıyoruz.</p>
+  <h2 data-en="How we use your data" data-tr="Verileri nasıl kullanıyoruz">How we use your data</h2>
+  <p data-en="The data we collect is used only to power the app's core features: showing art on the map, suggesting nearby content, personalizing recommendations, and managing your account. We do not sell your data to third parties." data-tr="Topladığımız veriler yalnızca uygulamanın temel işlevlerini sağlamak için kullanılır: haritada eser gösterme, yakınındaki içerikleri önerme, kişiselleştirilmiş öneriler sunma ve hesabını yönetme. Verilerini üçüncü taraflara satmıyoruz.">The data we collect is used only to power the app's core features: showing art on the map, suggesting nearby content, personalizing recommendations, and managing your account. We do not sell your data to third parties.</p>
 
-  <h2>Üçüncü taraf servisler</h2>
-  <p>Uygulama, aşağıdaki servisleri kullanır:</p>
+  <h2 data-en="Third-party services" data-tr="Üçüncü taraf servisler">Third-party services</h2>
+  <p data-en="The app uses the following services:" data-tr="Uygulama, aşağıdaki servisleri kullanır:">The app uses the following services:</p>
   <ul>
-    <li><strong>Firebase (Google):</strong> Hesap yönetimi, veritabanı ve fotoğraf depolama için.</li>
-    <li><strong>Wikipedia / Wikimedia Commons:</strong> Yakınındaki müze bilgisi ve sokak sanatı fotoğrafları için, konumun bu servislere anonim olarak sorgu şeklinde iletilir.</li>
+    <li data-en="Firebase (Google): account management, database, and photo storage." data-tr="Firebase (Google): Hesap yönetimi, veritabanı ve fotoğraf depolama için.">Firebase (Google): account management, database, and photo storage.</li>
+    <li data-en="Wikipedia / Wikimedia Commons: for nearby museum information and street art photos. Your location is sent to these services anonymously as a query." data-tr="Wikipedia / Wikimedia Commons: Yakınındaki müze bilgisi ve sokak sanatı fotoğrafları için, konumun bu servislere anonim olarak sorgu şeklinde iletilir.">Wikipedia / Wikimedia Commons: for nearby museum information and street art photos. Your location is sent to these services anonymously as a query.</li>
   </ul>
 
-  <h2>Verilerinin kontrolü</h2>
-  <p>Eklediğin eserleri istediğin zaman profil sayfandan silebilirsin. Hesabının tamamen silinmesini istersen, aşağıdaki iletişim adresinden bize ulaşabilirsin.</p>
+  <h2 data-en="Your control over your data" data-tr="Verilerinin kontrolü">Your control over your data</h2>
+  <p data-en="You can delete the pieces you've added at any time from your profile. If you'd like your account fully deleted, contact us at the email below." data-tr="Eklediğin eserleri istediğin zaman profil sayfandan silebilirsin. Hesabının tamamen silinmesini istersen, aşağıdaki iletişim adresinden bize ulaşabilirsin.">You can delete the pieces you've added at any time from your profile. If you'd like your account fully deleted, contact us at the email below.</p>
 
-  <h2>Bize ulaş</h2>
-  <p>Gizlilikle ilgili sorularının için: <a class="mailto" href="mailto:destek@artfinderapp.com">destek@artfinderapp.com</a></p>
+  <h2 data-en="Contact us" data-tr="Bize ulaş">Contact us</h2>
+  <p><span data-en="For privacy questions: " data-tr="Gizlilikle ilgili sorularının için: ">For privacy questions: </span><a class="mailto" href="mailto:support@artfinderapp.com">support@artfinderapp.com</a></p>
 </main>
 
 <footer>
   <div class="footer-inner">
-    <img src="assets/artfinder_logo_white.png" alt="ArtFinder" class="footer-logo">
+    <img src="artfinder_logo_white.png" alt="ArtFinder" class="footer-logo">
     <ul class="footer-links">
-      <li><a href="privacy.html">Gizlilik Politikası</a></li>
-      <li><a href="support.html">Destek</a></li>
+      <li><a href="privacy.html" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Privacy Policy</a></li>
+      <li><a href="support.html" data-en="Support" data-tr="Destek">Support</a></li>
     </ul>
   </div>
-  <div class="footer-tag">© 2026 ArtFinder — Discover art on the map.</div>
+  <div class="footer-tag" data-en="© 2026 ArtFinder — Discover art on the map." data-tr="© 2026 ArtFinder — Sanatı haritada keşfet.">© 2026 ArtFinder — Discover art on the map.</div>
 </footer>
 
 <script src="script.js"></script>

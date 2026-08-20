@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Hero'daki dekoratif pin noktalarını rastgele dağıt
   var field = document.querySelector('.hero-pins');
-  var pinEls = [];
   if (field) {
     var colors = ['rgba(255,255,255,0.9)', 'rgba(255,255,255,0.6)', 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.75)'];
     for (var i = 0; i < 14; i++) {
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
       pin.style.opacity = (0.35 + Math.random() * 0.4).toFixed(2);
       if (!reduceMotion) pin.style.animationDelay = (Math.random() * 3).toFixed(2) + 's';
       field.appendChild(pin);
-      pinEls.push(pin);
     }
   }
 
@@ -63,6 +61,29 @@ document.addEventListener('DOMContentLoaded', function () {
     revealEls.forEach(function (el) { el.classList.add('in-view'); });
   }
 
+  // ---------- DİL DEĞİŞTİRME (EN varsayılan, TR seçeneği) ----------
+  function applyLanguage(lang) {
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      var text = (lang === 'tr') ? (el.getAttribute('data-tr') || el.getAttribute('data-en')) : el.getAttribute('data-en');
+      if (text !== null) el.textContent = text;
+    });
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+    try { localStorage.setItem('site_lang', lang); } catch (e) {}
+  }
+
+  var savedLang = 'en';
+  try { savedLang = localStorage.getItem('site_lang') || 'en'; } catch (e) {}
+  applyLanguage(savedLang);
+
+  document.querySelectorAll('.lang-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      applyLanguage(b.getAttribute('data-lang'));
+    });
+  });
+
   // Hero shader - sayfa açılır açılmaz başlar (ilk ekran, lazy-load yok)
   initHeroShader(reduceMotion);
 });
@@ -70,10 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function initHeroShader(reduceMotion) {
   var holder = document.getElementById('hero-shader-holder');
   if (!holder) return;
-
-  // Hareket azaltma tercihi varsa, WebGL hiç yüklenmesin
   if (reduceMotion) return;
-
   loadThreeAndStart(holder);
 }
 
@@ -105,8 +123,6 @@ function startShader(container) {
 
   var vertexShader = 'void main() { gl_Position = vec4( position, 1.0 ); }';
 
-  // Fragment shader: akış efekti korunuyor, çıkış rengi metalik
-  // (koyu çelik -> gümüş -> parlak beyaz highlight) bir palete uyarlandı.
   var fragmentShader = [
     'precision highp float;',
     'uniform vec2 resolution;',
