@@ -136,15 +136,19 @@
     <div class="reveal">
       <span class="eyebrow" data-en="// Community" data-tr="// Topluluk">// Community</span>
       <h2 data-en="Don't wander alone." data-tr="Yalnız gezme.">Don't wander alone.</h2>
-      <p class="section-lead" style="margin-bottom:24px;" data-en="Follow the eyes you like. See where they've been, and enrich your own map with their discoveries. Full English and Turkish support." data-tr="Beğendiğin gözleri takip et. Kimin nereye baktığını gör, kendi haritanı onların keşifleriyle zenginleştir. İngilizce ve Türkçe tam destekli.">Follow the eyes you like. See where they've been, and enrich your own map with their discoveries. Full English and Turkish support.</p>
+      <p class="section-lead" style="margin-bottom:24px;" data-en="Follow the eyes you like. See where they've been, and enrich your own map with their discoveries." data-tr="Beğendiğin gözleri takip et. Kimin nereye baktığını gör, kendi haritanı onların keşifleriyle zenginleştir.">Follow the eyes you like. See where they've been, and enrich your own map with their discoveries.</p>
     </div>
     <div class="split-visual reveal">
       <svg class="route-svg" viewBox="0 0 400 300" fill="none">
-        <path class="draw-path" d="M40 240 C 100 180, 120 120, 190 100 S 320 60, 360 40" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-dasharray="6 8"/>
+        <path id="community-path" class="draw-path" d="M40 240 C 100 180, 120 120, 190 100 S 320 60, 360 40" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-dasharray="6 8"/>
         <circle cx="40" cy="240" r="6" fill="#ffffff"/>
         <circle cx="190" cy="100" r="6" fill="#b8b8b8"/>
         <circle cx="270" cy="75" r="6" fill="#727272"/>
         <circle cx="360" cy="40" r="6" fill="#ffffff"/>
+        <g class="traveler-group" id="traveler-group" opacity="0">
+          <circle r="10" fill="rgba(255,255,255,0.18)"/>
+          <circle r="4" fill="#ffffff"/>
+        </g>
       </svg>
     </div>
   </div>
