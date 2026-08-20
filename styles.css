@@ -403,3 +403,50 @@ a:focus-visible, button:focus-visible{
   outline:2px solid var(--spray);
   outline-offset:3px;
 }
+
+/* ---------- SHADER SIGNATURE SECTION ---------- */
+.shader-section{
+  position:relative;
+  width:100%;
+  height:56vh;
+  min-height:360px;
+  max-height:520px;
+  overflow:hidden;
+  background:var(--ink);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.shader-canvas-holder{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.shader-canvas-holder canvas{
+  display:block;
+  width:100% !important;
+  height:100% !important;
+}
+.shader-fallback{
+  position:absolute; inset:0;
+  background-image:radial-gradient(rgba(224,64,47,0.16) 1.4px, transparent 1.4px);
+  background-size:22px 22px;
+}
+.shader-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:0 28px;
+  pointer-events:none;
+}
+.shader-content .eyebrow{color:rgba(255,255,255,0.55); margin-bottom:14px;}
+.shader-content h2{
+  font-family:'Archivo Black',sans-serif;
+  color:#fff;
+  font-size:clamp(2rem, 6vw, 3.6rem);
+  text-transform:uppercase;
+  line-height:1.02;
+  margin:0;
+  text-shadow:0 2px 24px rgba(0,0,0,0.6);
+}
