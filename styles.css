@@ -193,7 +193,7 @@ img{max-width:100%;display:block;}
   background:var(--ink);
   color:var(--paper);
   text-align:center;
-  padding:0 28px 90px;
+  padding:64px 28px 90px;
   max-width:640px;
   margin:0 auto;
 }
@@ -342,6 +342,31 @@ img{max-width:100%;display:block;}
 @media (prefers-reduced-motion: reduce){
   .traveler-group circle:first-child{animation:none;}
 }
+
+.community-section{
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.community-shader-holder{
+  position:absolute; inset:0;
+  z-index:0;
+}
+.community-shader-holder canvas{
+  display:block;
+  width:100% !important;
+  height:100% !important;
+  opacity:0;
+  transition:opacity 1.4s ease;
+}
+.community-overlay{
+  position:absolute; inset:0;
+  z-index:0;
+  background:radial-gradient(ellipse at center, rgba(11,11,11,0.35) 0%, rgba(11,11,11,0.78) 75%);
+  pointer-events:none;
+}
+.community-section .split{position:relative; z-index:1;}
 
 /* ---------- CTA BAND ---------- */
 .cta-band{
