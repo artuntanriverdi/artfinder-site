@@ -90,9 +90,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Dünya globe'u - sadece bölüme yaklaşınca yüklenir (performans için)
   initGlobeSection(reduceMotion);
 
-  // Topluluk bölümü - çizginin üzerinde dolaşan takip noktası
-  initCommunityTraveler(reduceMotion);
-
   // Topluluk bölümü arka planı - akan tepeler (Perlin noise) animasyonu
   initCommunityHills(reduceMotion);
 });
@@ -311,37 +308,6 @@ function startHills(container) {
     renderer.render(scene, camera);
   }
   animate();
-}
-
-function initCommunityTraveler(reduceMotion) {
-  var path = document.getElementById('community-path');
-  var group = document.getElementById('traveler-group');
-  if (!path || !group || reduceMotion) return;
-
-  var length = path.getTotalLength();
-  var duration = 4200;
-  var start = null;
-  var running = false;
-
-  function frame(ts) {
-    if (!start) start = ts;
-    var elapsed = (ts - start) % duration;
-    var t = elapsed / duration;
-    var point = path.getPointAtLength(t * length);
-    group.setAttribute('transform', 'translate(' + point.x + ',' + point.y + ')');
-    requestAnimationFrame(frame);
-  }
-
-  var obs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting && !running) {
-        running = true;
-        group.setAttribute('opacity', '1');
-        requestAnimationFrame(frame);
-      }
-    });
-  }, { threshold: 0.3 });
-  obs.observe(path);
 }
 
 function initGlobeSection(reduceMotion) {
